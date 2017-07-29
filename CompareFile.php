@@ -45,8 +45,10 @@ Class CompareFile{
       *  _construct( $file1, $file2, $numeric )
       *  string $file1 lokalizacja pliku tekstowego
       *  string $file2 lokalizacja plików
-	  *  int $numeric wybór zadania
+      *  int $numeric wybór zadania
       *  return null
+      *  0 usuń pliki wskazane w pliku tekstowym
+      *  1 zachowaj pliki wskazane w pliku tekstowym
       */
 
       public function __construct( $file1, $file2, $numeric ){
