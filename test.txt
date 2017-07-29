@@ -1,0 +1,5 @@
+ClasaSprawdzPliki.php
+configuration.php
+index-pliki.php
+SpecialArguments.php
+zad-4.html
