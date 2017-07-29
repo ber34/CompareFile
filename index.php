@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) ."/ClasaSprawdzPliki.php");
 // plik z plikami do usunięcia
 $file1 = dirname(__FILE__) ."/test-pliki.txt";
 // folder z plikami do porównania
-$file2="c:/test";
+$file2="c:/dir";
 
 // $dir    = dirname(__FILE__) .'/pliki';
 
