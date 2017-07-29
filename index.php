@@ -22,3 +22,6 @@ $file2="c:/test";
   
   // Wypisujemy błędy
    echo $pliki->Error()[0];
+
+
+
