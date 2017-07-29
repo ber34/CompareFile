@@ -100,8 +100,8 @@ Class CompareFile{
 
            if($this->check_dir($this->file1)){   
                 if(is_array(file($this->file1))){
-					 // czyścimy trim ze śmieci
-					$this->Tab = explode(",",implode(',', array_map('trim', file($this->file1))));
+		     // czyścimy trim ze śmieci
+		     $this->Tab = explode(",",implode(',', array_map('trim', file($this->file1))));
                   }else{
                     $this->error[] =" Tablica jest pusta ";
                    }
