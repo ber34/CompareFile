@@ -31,7 +31,9 @@ Class CompareFile{
  * Porownaj Pliki
  * @author Adam Berger <ber34#o2.pl-->
  * Porównuje pliki z wybranego folderu z plikiem tekstowym, zawierającym podaną ścieżkę do pliku.
- * Pliki nie znajdujące się na liście usuwa z podanego folderu.  
+ * Pliki nie znajdujące się na liście usuwa z podanego folderu. 
+ *  0 usuń pliki wskazane w pliku tekstowym
+ *  1 zachowaj pliki wskazane w pliku tekstowym
  */
 
    public $file1;
@@ -56,16 +58,15 @@ Class CompareFile{
              $this->file1 = $file1;
              $this->file2 = $file2;
 			 
-			 if(is_numeric($numeric)){
+	   if(is_numeric($numeric)){
 				 
-				 $this->numeric = $numeric; 
+		$this->numeric = $numeric; 
 				 
-			 }else{
-				 
-				$this->error[] = " Podaj prawidłowy parametr Numerik "; 
-			 }
+		 }else{
+		   
+		$this->error[] = " Podaj prawidłowy parametr Numerik "; 
 			
-			 
+	   }	 
          }
 
    /**
@@ -82,7 +83,7 @@ Class CompareFile{
          return true;
 		 
          }else{
-			 $this->error[] = " Błędna lokalizacja pliku lub folderu ";
+	   $this->error[] = " Błędna lokalizacja pliku lub folderu ";
           // throw new Exception(" Błędna lokalizacja pliku lub folderu ");
          return false;
 
@@ -109,7 +110,7 @@ Class CompareFile{
               }else{
 	
                //throw new Exception("Błędna lokalizacja pliku tekstowego");
-              $this->error[] =" Błędna lokalizacja pliku tekstowego ";
+                 $this->error[] =" Błędna lokalizacja pliku tekstowego ";
 
               }
         }
@@ -123,7 +124,7 @@ Class CompareFile{
       public function load_dir(){
            if($this->check_dir($this->file2)){
                 // $dir  = dirname(__FILE__) .'/pliki';
-				$this->Tab1 = array_diff(scandir($this->file2), array('..', '.'));
+	      $this->Tab1 = array_diff(scandir($this->file2), array('..', '.'));
                 // $this->Tab1 = scandir($this->file2);
 
               }else{
@@ -141,31 +142,30 @@ Class CompareFile{
        public function compare_file(){
 
         if(is_array($this->Tab1)){
-		
 		//print_r($this->Tab1);
 		 //Var_dump($this->Tab);
 		// Var_dump($this->Tab1);
 		
          foreach($this->Tab1 as $spr){
 		 
-			   if(in_array( $spr, $this->Tab )){
+		if(in_array( $spr, $this->Tab )){
                   // echo $spr;
                     $dobre[] = $spr;
-					// numeric 0 
-					 if($this->numeric == 0){
-						  //  $wyn  = array_merge($this->Tab[0], $this->Tab1);        
+		// numeric 0 
+		if($this->numeric == 0){
+		//  $wyn  = array_merge($this->Tab[0], $this->Tab1);        
                          //  $wyn1 = array_unique( $wyn );
-				 if($this->check_dir($this->file2)){
+		 if($this->check_dir($this->file2)){
                      unlink($this->file2."/".$spr);
 				      }
 				   }
                 }else{
 				// numeric 1 
-				 if($this->numeric == 1){
+		if($this->numeric == 1){
                    $zle_usun[] = $spr;
-				   		// Usuwamy pliki zbędne
+		// Usuwamy pliki zbędne
          //array_map( "unlink", glob(dirname(__FILE__) .'/pliki/*'.$plik.'.clu') );
-				  if($this->check_dir($this->file2)){
+		 if($this->check_dir($this->file2)){
                      unlink($this->file2."/".$spr);
 				      }
 				 }
@@ -177,10 +177,7 @@ Class CompareFile{
            $this->error[] =" Tablica jest pusta ";
           }
           
-         if(!empty($dobre)){
-			 
-			 //print_r($zle_usun);
-			  ///print_r($dobre);
+         if(!empty($dobre) || !empty($zle_usun)){
 			
           $this->error[] ="Usunięto Wszystko OK  "; 
 
@@ -199,8 +196,8 @@ Class CompareFile{
 
           if(!empty($this->error)){
 			  
-				return $this->error;				   
+	     return $this->error;				   
 
-        }
+            }
 	  }
 }
