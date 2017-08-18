@@ -34,6 +34,11 @@ Class CompareFile{
  * Pliki nie znajdujące się na liście usuwa z podanego folderu. 
  *  0 usuń pliki wskazane w pliku tekstowym
  *  1 zachowaj pliki wskazane w pliku tekstowym
+ *******************************************************************************************
+ * Compares files from the selected folder with a text file containing the specified path to the file.
+ * Files that are not in the list are removed from the specified folder.
+ * 0 delete the files indicated in the text file
+ * 1 keep the files indicated in the text file
  */
 
    public $file1;
