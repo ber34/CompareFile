@@ -99,7 +99,7 @@ Class CompareFile{
           * plik tekstowy
           * obiekt string $this->file1
           * obiekt array() $this->error
-          * return array()
+          * obiekt array() $this->Tab
           */
 
        public function load_text_file(){
@@ -141,7 +141,11 @@ Class CompareFile{
    /**
     *
     * obiekt array() $this->Tab1
-    * return array() $zle_usun
+    * obiekt array() $this->Tab
+    * obiekt $this->file2
+    * obiekt $this->numeric
+    * array() $zle_usun
+    * array() $dobre
     */
 
        public function compare_file(){
