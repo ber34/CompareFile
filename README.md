@@ -1,6 +1,8 @@
 # CompareFile
 Porównywanie plików.
 
+Porównuje przypisany folder z plikami w środku z przypisanym plikiem tekstowym. 
+
 Porównuje pliki z wybranego folderu z plikiem tekstowym, zawierającym podaną ścieżkę do pliku.
  Pliki nie znajdujące się na liście usuwa z podanego folderu.
  
